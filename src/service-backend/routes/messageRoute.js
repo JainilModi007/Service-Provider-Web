@@ -1,0 +1,21 @@
+const express = require("express")
+const Message = require("../models/dbmessage")
+
+const router = express.Router();
+
+router.route("/message").post((req, res) => {
+    const message =  req.body.message;
+    const newMessage = new Message({
+        message
+    });
+
+    newMessage.save();
+})
+
+
+ router.route("/status").get((req, res) => {
+     Message.find()
+         .then(foundMessage => res.json(foundMessage))
+ })
+
+module.exports = router;
