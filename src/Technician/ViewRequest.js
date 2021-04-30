@@ -1,9 +1,8 @@
-import "./Request.css";
+import "../Shopkeeper/Request.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import HeaderShopkeeper from "../Header/HeaderShopkeeper"
-//import { request } from "express";
+import HeaderTechnician from "../Header/HeaderTechnician"
 
 
 
@@ -34,7 +33,7 @@ function Request() {
 
   useEffect(() => {
     
-      fetch("/request")
+      fetch("/viewrequest")
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -73,18 +72,14 @@ function Request() {
 
 
    
-    const [searchTerm, setSearchTerm] = useState("")
 
 
 
   return (
     <div className="request">
-      <HeaderShopkeeper/>
-      {/* <input class="search" type="text" placeholder="Search" onChange={event => {setSearchTerm(event.target.value)}}/> */}
-     
- 
+      <HeaderTechnician/>
       {requests.filter((request) => {
-        if(request.shopkeeperID.includes(s2)){
+        if(request.serviceID.includes(s2)){
           return request
         }
       }).map((request) => (
@@ -97,7 +92,6 @@ function Request() {
               <p>Contact No : {request.contactNo}</p>
               <p>Address : {request.address}</p>
               <p>Product : {request.productName}</p>
-              <p>RequestDate : {request.date}</p>
               <p>Description : {request.description}</p>
             </div>
             <div style={{ marginLeft: "480px", position: "absolute" }}>
@@ -106,43 +100,29 @@ function Request() {
               <p>City : {request.city}</p>
               <p>ProductID : {request.productID}</p>
               <p>ServiceID : {request.serviceID}</p>
-              
             </div>
           </div>
 
           <div>
             <p style={{ visibility: "hidden" }}>Hello</p>
             <p style={{ display: "flex" }}>
-              <Link to= {`/message/`+ `${request.serviceID}`}><button
+              <Link to= {`/otp/`+ `${request.serviceID}`}><button
                 type="button"
                 class="btn btn-warning"
                 style={{ borderRadius: "10px", fontWeight: "600" }}
               >
-                Accept
+                Enter OTP
               </button>
               </Link>
             </p>
             
-            <p style={{ display: "flex" }}>
-              <Link to= {`/assigntechnician/`+ `${request.serviceID}`}><button
-                type="button"
-                class="btn btn-warning"
-                style={{ borderRadius: "10px", fontWeight: "600" }}
-              >
-                Assign technician
-              </button>
-              </Link>
-            </p>
-           
-
+            
             
           </div>
         </div>
       ))}
-      
-   
     </div>
-      );
+  );
 }
 
 export default Request;

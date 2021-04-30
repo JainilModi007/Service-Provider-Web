@@ -6,9 +6,14 @@ import HeaderShopkeeper from "../Header/HeaderShopkeeper"
 
 
 function Feedbacks() {
+
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  console.log(s2);
   const [feedbacks, setFeedbacks] = useState([
     {
       serviceID: "",
+      shopkeeperID: "",
       exp: "",
       comment: ""
     },
@@ -28,9 +33,14 @@ function Feedbacks() {
     return (
       <div className="feedback">
           <HeaderShopkeeper/>
-        
           <h4 style={{textAlign:"center", fontWeight:"700"}}>Feedbacks</h4>
-          {feedbacks.map((feedback) => (
+
+          {feedbacks.filter((feedback) => {
+        if(feedback.shopkeeperID.includes(s2)){
+          return feedback
+        }
+      }).map((feedback) => (
+     
         <div className="feedback-card">
           <div style={{ display: "flex", justifyContent: "left" }}>
             <div>
@@ -42,17 +52,7 @@ function Feedbacks() {
             </div>
           </div>
 
-          <div>
-            <p style={{ display: "flex" }}>
-              <button
-                type="button"
-                class="btn btn-warning"
-                style={{ borderRadius: "10px", fontWeight: "600", marginRight: "20px", marginTop:"20px"}}
-              >
-                Edit
-              </button>
-            </p>
-          </div>
+          
         </div>
       ))}
           

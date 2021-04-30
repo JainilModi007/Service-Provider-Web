@@ -1,7 +1,8 @@
-
+import HeaderTechnician from "../Header/HeaderTechnician"
 function TechnicianHome() {
     return (
       <div className="Home container">
+        <HeaderTechnician/>
           <h2>Welcome to our Technician Home Page</h2>
       <p style={{marginTop:"20px" }}>You can book your desired home service like 
   electrician, plumber, carpenter, cleaner, painter, AC repair, Washing machine repair, 

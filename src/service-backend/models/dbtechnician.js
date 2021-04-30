@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
 const technicianSchema = new mongoose.Schema({
+
+    shopkeeperID: {
+        type : String,
+        required : true
+    } ,
+
     technicianID: {
         type : String,
         required : true,

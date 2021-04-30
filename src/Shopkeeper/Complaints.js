@@ -4,6 +4,11 @@ import HeaderShopkeeper from "../Header/HeaderShopkeeper"
 
 
 function Complaints() {
+
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  console.log(s2);
+
   const [complaints, setComplaints] = useState([
     {
       serviceID: "",
@@ -28,7 +33,11 @@ function Complaints() {
       <div className="complaint">
         <HeaderShopkeeper/>
           <h4 style={{textAlign:"center", fontWeight:"700"}}>Complaints</h4>
-          {complaints.map((complaint) => (
+          {complaints.filter((complaint) => {
+        if(complaint.shopkeeperID.includes(s2)){
+          return complaint
+        }
+      }).map((complaint) => (
         <div className="complaint-card">
           <div style={{ display: "flex", justifyContent: "left" }}>
             <div>
@@ -40,17 +49,7 @@ function Complaints() {
             </div>
           </div>
 
-          <div>
-            <p style={{ display: "flex" }}>
-              <button
-                type="button"
-                class="btn btn-warning"
-                style={{ borderRadius: "10px", fontWeight: "600", marginRight: "20px", marginTop:"20px"}}
-              >
-                Resolve
-              </button>
-            </p>
-          </div>
+         
         </div>
       ))}
           

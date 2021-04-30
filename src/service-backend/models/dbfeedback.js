@@ -7,13 +7,20 @@ const feedbackSchema = new mongoose.Schema({
         unique : true 
     } ,
 
+    shopkeeperID: {
+        type : String,
+        required : true
+    } ,
+
     exp: {
-        type : String
+        type : String ,
+        required : true 
         
     } ,
     
     comment : {
-        type : String
+        type : String , 
+        required : true
     }
 
 })

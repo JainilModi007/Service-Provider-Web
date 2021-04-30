@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HeaderCustomer from "../Header/HeaderCustomer";
 
 function RequestHistory() {
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  console.log(s2);
+
   const [requests, setRequests] = useState([
     {
       customerID: "",
@@ -16,6 +20,7 @@ function RequestHistory() {
       productID: "",
       date: "",
       description: "",
+      serviceID:""
     },
   ]);
 
@@ -34,7 +39,12 @@ function RequestHistory() {
   return (
     <div className="request">
       <HeaderCustomer/>
-      {requests.map((request) => (
+      {requests.filter((request) => {
+        if(request.customerID.includes(s2)){
+          return request
+        }
+      }).map((request) => (
+      
    <div className="request-card">
      <div style={{ display: "flex", justifyContent: "left" }}>
        <div>
@@ -49,11 +59,12 @@ function RequestHistory() {
          <p>Email : {request.email}</p>
          <p>City : {request.city}</p>
          <p>ProductID : {request.productID}</p>
+         <p>ServiceID : {request.serviceID}</p>
        </div>
      </div>
 
      <div style={{marginRight:"50px", marginTop:"20px"}}>
-       <Link to="/status">
+       <Link to={`/status/`+ `${request.serviceID}`}>
      <button 
                 type="button"
                 class="btn btn-warning"

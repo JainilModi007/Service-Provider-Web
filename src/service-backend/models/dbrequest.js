@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const requestSchema = new mongoose.Schema({
     customerID: {
         type : String,
-        required : true,
-        unique : true 
+        required : true
     } ,
 
     customerName: {
@@ -15,14 +14,12 @@ const requestSchema = new mongoose.Schema({
     
     contactNo : {
         type : Number,
-        required : true ,
-        unique : true
+        required : true 
     },
 
     email : {
         type : String,
-        required : true ,
-        unique : true
+        required : true 
     },
 
     address : {
@@ -51,8 +48,7 @@ const requestSchema = new mongoose.Schema({
 
     productID : {
         type : String,
-        required : true ,
-        unique : true
+        required : true 
     },
 
     date : {
@@ -75,9 +71,13 @@ const requestSchema = new mongoose.Schema({
 
     shopkeeperID : {
         type : String,
-        required : true,
-        unique : true 
-    }
+        required : true
+    },
+
+    serviceID : {
+        type : String,
+        required : true
+    },
 
 })
 

@@ -17,7 +17,10 @@ router.post("/shopkeeperdetails" ,  async(req, res) => {
         //const userExist = await ShopkeeperDetails.findOne({shopkeeperID : shopkeeperID})
         const newShopkeeperDetails = new ShopkeeperDetails({shopName, shopkeeperName, shopkeeperID});
         newShopkeeperDetails.save();
+
+       
         res.status(207).json({shopkeeperID : shopkeeperID})
+       
     }catch(err){
         console.log(err);
     }

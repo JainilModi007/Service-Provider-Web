@@ -1,11 +1,11 @@
-import "./CustomerDetails.css";
+import "../Technician/Otp.css";
 import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 import HeaderCustomer from "../Header/HeaderCustomer";
 
-function CustomerDetails() {
+function CustomerOTP() {
 
   window.onload = function myFunction(){
     var now = new Date();
@@ -16,7 +16,8 @@ function CustomerDetails() {
        randomNum += Math.round(Math.random() * 9);
        randomNum += now.getTime();
        randomNum = randomNum.substr(1,5);
-       alert('Your Customer ID:' + randomNum);
+       //document.getElementsByName(randomNum)
+       alert('OTP:' + randomNum);
        return randomNum;
      
  }
@@ -24,8 +25,7 @@ function CustomerDetails() {
   //var x = myFunction();
   const history = useHistory();
   const [input, setInput] = useState({
-    customerName: '',
-    customerID: ''
+    otp: ''
   })
 
   function handleChange(event){
@@ -39,35 +39,34 @@ function CustomerDetails() {
     })
   }
 
-    const handleClick = async (event) => {
+    const handleClick = async(event) => {
       event.preventDefault();
       //console.log(input);
-      const newCustomerDetails = {
-        customerName: input.customerName,
-        customerID: input.customerID
+      const newOtp = {
+        otp: input.otp
       }
  
-      const res =  await fetch("/customerdetails", {
+       const res =  await fetch("/customerotp", {
        method: "POST",
-       headers: {
+        headers: {
          "Content-Type" : "application/json"
        },
        body: JSON.stringify({
-         customerName:input.customerName, customerID:input.customerID
+         otp:input.otp
        })
      })
      console.log(input);
      const data = await  res.json();
      console.log(data.customerID);
            
-           if(res.status === 208 ){
-             window.alert("Account created successfully");
-             history.push("/headercustomer?" + data.customerID);
-           } 
-           else{
-             window.alert("account not created");
-           }
- 
+        //    if(res.status === 208 ){
+        //      window.alert("Account created successfully");
+        //      history.push("/headercustomer?" + data.customerID);
+        //    } 
+        //    else{
+        //      window.alert("account not created");
+        //    }
+        history.push("/customerhome?" + data.otp);
           }
 
   // function handleClick(event){
@@ -95,17 +94,14 @@ function CustomerDetails() {
     
         <div className="wrapper-customerdetails">
             <div class="title">
-        Enter your details</div>
+        Enter OTP</div>
         <form method="POST">
                 
                 <div class="field">
-                <input onChange={handleChange} type="text" required name="customerName" value={input.customerName}/>
-                <label>Customer Name</label>
+                <input onChange={handleChange} type="text" required name="otp" value={input.otp}/>
+                <label>OTP</label>
                 </div>
-                <div class="field">
-                    <input onChange={handleChange} type="number" required name="customerID" id="customerID" value={input.customerID}/>
-                    <label>Customer ID</label>
-                 </div>
+               
                 <div class="content">
                 
                  <div class="field">
@@ -120,4 +116,4 @@ function CustomerDetails() {
   );
 }
 
-export default CustomerDetails;
+export default CustomerOTP;

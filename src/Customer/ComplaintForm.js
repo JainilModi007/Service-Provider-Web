@@ -1,6 +1,7 @@
 import "./ComplaintForm.css";
 import React, {useState} from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import HeaderCustomer from "../Header/HeaderCustomer";
 
 
@@ -61,7 +62,7 @@ function ComplaintForm() {
             </div>
 
             <div class="field">
-                <input onClick={handleClick} type="submit" value="Submit"/>
+                <Link to="/customerhome" ><input onClick={handleClick} type="submit" value="Submit"/></Link>
             </div>
 
         </form>

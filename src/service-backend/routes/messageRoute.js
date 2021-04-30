@@ -4,8 +4,10 @@ const Message = require("../models/dbmessage")
 const router = express.Router();
 
 router.route("/message").post((req, res) => {
-    const message =  req.body.message;
+    const serviceID = req.body.serviceID;
+    const message =  req.body.message ;
     const newMessage = new Message({
+        serviceID,
         message
     });
 

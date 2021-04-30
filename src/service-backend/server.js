@@ -44,6 +44,11 @@ app.use("/", require("./routes/productRoute"));
 app.use("/", require("./routes/technicianRoute"));
 app.use("/", require("./routes/messageRoute")); 
 app.use("/", require("./routes/shopkeeperdetailsRoute"));
+app.use("/", require("./routes/customerdetailsRoute"));
+app.use("/", require("./routes/assign"));
+app.use("/", require("./routes/techniciandetailsRoute"));
+app.use("/", require("./routes/otpRoute"));
+app.use("/", require("./routes/idRoute"));
 
 
 // Listener 

@@ -3,9 +3,14 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Status() {
+
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  console.log(s2);
   const [messages, setMessages] = useState([
     {
       message: "",
+      serviceID:""
     },
   ]);
 
@@ -21,7 +26,12 @@ function Status() {
 
   return (
     <div className="request">
-      {messages.map((message) => (
+      {messages.filter((message) => {
+        if(message.serviceID.includes(s2)){
+          return message
+        }
+      }).map((message) => (
+      
         <div className="request-card">
           <div style={{ display: "flex", justifyContent: "left" }}>
             <div>

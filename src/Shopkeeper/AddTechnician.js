@@ -15,6 +15,7 @@ import {
 function AddTechnician() {
 
   const [input, setInput] = useState({
+    shopkeeperID: '',
     technicianID: '',
     technicianName: '',
     contactNo: '',
@@ -39,6 +40,7 @@ function AddTechnician() {
     event.preventDefault();
     console.log(input);
      const newTechnician = {
+       shopkeeperID: input.shopkeeperID,
        technicianID: input.technicianID,
        technicianName: input.technicianName,
        contactNo: input.contactNo,
@@ -60,6 +62,11 @@ function AddTechnician() {
         
           <div class="customer">
             <h3 style={{ color: "black" }}>Technician Details</h3>
+
+            <div class="field">
+              <input onChange={handleChange} type="text" required name="shopkeeperID" value={input.shopkeeperID}/>
+              <label>Shopkeeper ID</label>
+            </div>
 
             <div class="field">
               <input onChange={handleChange} type="text" required name="technicianID" value={input.technicianID}/>
@@ -92,7 +99,7 @@ function AddTechnician() {
           </div>
 
           <div class="field">
-            <Link to="/shopkeeperhome"><input type="submit" value="Submit" /></Link>
+            <input onClick={handleClick} type="submit" value="Submit" />
           </div>
         </form>
       </div>

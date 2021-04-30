@@ -2,10 +2,12 @@ import "./CustomerForm.css";
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import HeaderCustomer from "../Header/HeaderCustomer";
+import {useHistory} from "react-router-dom";
 
 function CustomerForm() {
+  const history = useHistory();
 
-  useEffect(() =>{
+  window.onload = function myFunction(){
     var now = new Date();
        var randomNum = '';
        randomNum += Math.round(Math.random() * 9);
@@ -13,11 +15,10 @@ function CustomerForm() {
        randomNum += Math.round(Math.random() * 9);
        randomNum += Math.round(Math.random() * 9);
        randomNum += now.getTime();
-       //alert(randomNum);
-       window.onload = function () {
-           document.getElementById("serviceID").value = randomNum.substr(0,5); 
-       }
- })
+       randomNum = randomNum.substr(1,5);
+      // return randomNum;
+      alert('Your service ID:' + randomNum);
+ }
 
   const [input, setInput] = useState({
     customerID: '',
@@ -32,7 +33,8 @@ function CustomerForm() {
     date: '',
     description: '',
     shopkeeperName: '',
-    shopkeeperID: ''
+    shopkeeperID: '',
+    serviceID:''
   })
 
 
@@ -47,7 +49,7 @@ function CustomerForm() {
     })
   }
 
-  function handleClick(event){
+  const handleClick = async (event) =>{
     event.preventDefault();
     console.log(input);
      const newRequest = {
@@ -59,14 +61,51 @@ function CustomerForm() {
        state: input.state,
        city: input.city,
        productName: input.productName,
-       productID: input.serviceID,
+       productID: input.productID,
        date: input.date,
        description: input.description,
        shopkeeperName: input.shopkeeperName,
-       shopkeeperID: input.shopkeeperID
+       shopkeeperID: input.shopkeeperID,
+       serviceID:input.serviceID
      }
 
-     axios.post('http://localhost:3001/customerform', newRequest)
+     const res = await fetch("/customerform", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        customerID: input.customerID,
+       customerName: input.customerName,
+       contactNo: input.contactNo,
+       email: input.email,
+       address: input.address,
+       state: input.state,
+       city: input.city,
+       productName: input.productName,
+       productID: input.productID,
+       date: input.date,
+       description: input.description,
+       shopkeeperName: input.shopkeeperName,
+       shopkeeperID: input.shopkeeperID,
+       serviceID:input.serviceID
+      })
+    })
+    const data = await res.json();
+    console.log(data);
+          
+          if(res.status === 411 || !data){
+            window.alert("Invalid Shopkeeper id");
+          } 
+          else if(res.status === 412 || !data) {
+            window.alert("Invalid Service id");
+           // history.push("/customerhome");
+          }
+          else if(res.status === 212 ){
+            window.alert("request sent successfully")
+            //history.push("/customerhome");
+          }
+     //axios.post('http://localhost:3001/customerform', newRequest)
   }
 
 
@@ -131,7 +170,7 @@ function CustomerForm() {
 
             <div class="field">
               <input onChange={handleChange} type="date" required name="date" value={input.date}/>
-              <label>Expire date of warranty period</label>
+              <label>date of request</label>
             </div>
 
             <div class="field">

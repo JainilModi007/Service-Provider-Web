@@ -11,20 +11,24 @@ import {
 
 
 function HeaderTechnician() {
-    const options = [
-        <Link to='/'>Details</Link>, <Link to='/request'>Requests</Link>, <Link to='/feedbacks'>Feedback</Link>, <Link to='/'>Complaints</Link>
-      ];
+
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  var s3 =  `/technicianhome/${s2}`;
+  var s4 =  `/viewservice/${s2}`;
+  var s5 =  `/${s2}`;
+  
+   
   return (
     <div className="Header">
       <div class="main-header">
     <h4 class="logo">Service Provider</h4>
     
     <div class="menu">
-    <Link to='/'><h5>Home</h5></Link>
-   
-    <h5><Dropdown style= {{marginLeft:"0px"}} options={options} placeholder="Customer" /></h5>
-    
-    <Link to='/'><h5>Logout</h5></Link>
+    <Link to={s3}><h5>Home</h5></Link>
+    <Link to={s3}><h5>About</h5></Link>
+    <Link to={s4}><h5>View Service</h5></Link>
+    <Link to="/login"><h5>Logout</h5></Link>
     </div>
     
   </div>

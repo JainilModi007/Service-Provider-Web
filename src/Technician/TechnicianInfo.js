@@ -1,4 +1,4 @@
-import "./ShopkeeperDetails.css";
+import "./TechnicianInfo.css";
 import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -17,7 +17,7 @@ function ShopkeeperDetails() {
         randomNum += now.getTime();
         randomNum = randomNum.substr(1,5);
        // return randomNum;
-       alert('Your Shopkeeper ID:' + randomNum);
+       alert('Your Technician ID:' + randomNum);
   }
        // window.alert("Please note down your Shopkeeper ID : " + randomNum);
         //window.onload = function () {
@@ -29,9 +29,8 @@ function ShopkeeperDetails() {
 
   const history = useHistory();
   const [input, setInput] = useState({
-    shopName: '',
-    shopkeeperName: '',
-    shopkeeperID: ''
+    technicianName: '',
+    technicianID: ''
   })
 
   function handleChange(event){
@@ -48,28 +47,28 @@ function ShopkeeperDetails() {
    const handleClick = async (event) => {
      event.preventDefault();
      //console.log(input);
-     const newShopkeeperDetails = {
-       shopName: input.shopName,
-       shopkeeperName: input.shopkeeperName,
-       shopkeeperID: input.shopkeeperID
+     const newTechnicianDetails = {
+       technicianName: input.technicianName,
+       technicianID: input.technicianID
      }
 
-     const res =  await fetch("/shopkeeperdetails", {
+     const res =  await fetch("/technicianinfo", {
       method: "POST",
       headers: {
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-        shopName:input.shopName, shopkeeperName:input.shopkeeperName, shopkeeperID:input.shopkeeperID
+        technicianName: input.technicianName,
+       technicianID: input.technicianID
       })
     })
     console.log(input);
     const data = await  res.json();
-    console.log(data.shopkeeperID);
+    console.log(data.technicianID);
           
-          if(res.status === 207){
+          if(res.status === 217){
             window.alert("Account created successfully");
-            history.push("/headershopkeeper?" + data.shopkeeperID);
+            history.push("/headertechnician?" + data.technicianID);
           } 
           else{
             window.alert("account not created");
@@ -86,17 +85,14 @@ function ShopkeeperDetails() {
         <form method="POST">
                 
                 <div class="field">
-                <input onChange={handleChange} type="text" required name="shopName" value={input.shopName}/>
-                <label>Shop Name</label>
+                <input onChange={handleChange} type="text" required name="technicianName" value={input.technicianName}/>
+                <label>Technician Name</label>
                 </div>
                 <div class="field">
-                <input onChange={handleChange} type="text" required name="shopkeeperName" value={input.shopkeeperName}/>
-                <label>Shopkeeper Name</label>
+                <input onChange={handleChange} type="text" required name="technicianID" value={input.technicianID}/>
+                <label>Technician ID</label>
                 </div>
-                <div class="field">
-                    <input onChange={handleChange}  type="number" required name="shopkeeperID" id="shopkeeperID"  value={input.shopkeeperID} />
-                    <label>Shopkeeper ID</label>
-                </div>
+                
                 <div class="content">
                 
                 <div class="field">

@@ -17,16 +17,28 @@ function HeaderShopkeeper() {
 
   const s1 = window.location.href;
   var s2 = s1.substr(s1.length - 5);
+  var s3 =  `/addproduct/${s2}`;
+  var s4 =  `/productdetails/${s2}`;
+  var s5 =  `/request/${s2}`;
+  var s6 =  `/feedback/${s2}`;
+  var s7 =  `/complaint/${s2}`;
+  var s8 =  `/addtechnician/${s2}`;
+  var s9 =  `/techniciandetails/${s2}`;
+  var s10 =  `/shopkeeperhome/${s2}`;
+  var s11 =  `/registeredtechnician/${s2}`;
   console.log(s2);
 
 
     const options = [
 
-      <Link to= '/addproduct'>Add product</Link> ,<Link to='/productdetails'>View Details</Link>, <Link to='/request'>Requests</Link>, <Link to='/feedback'>Feedback</Link>, <Link to='/complaint'>Complaints</Link>
+      
+      <Link to= {s3}>Add product</Link>,<Link to= {s4}>View Details</Link>, <Link to= {s5}>Requests</Link>, <Link to={s6}>Feedback</Link>, <Link to={s7}>Complaints</Link>
       ];
  
       const options2 = [
-        <Link to='/addtechnician'>Add Technician</Link>, <Link to='/techniciandetails'>details</Link> 
+        <Link to= {s8}>Add technician</Link> ,
+        <Link to={s9}>details</Link>,
+        <Link to={s11}>Registered Technician</Link>  
       ];
 
       
@@ -37,7 +49,7 @@ function HeaderShopkeeper() {
     <h4 class="logo">Service Provider</h4>
     
     <div class="menu">
-    <Link to='/shopkeeperhome'><h5>Home</h5></Link>
+    <Link to= {s10}><h5>Home</h5></Link>
    
     <h5><Dropdown style= {{marginLeft:"0px"}} options={options} placeholder="Customer" /></h5>
 

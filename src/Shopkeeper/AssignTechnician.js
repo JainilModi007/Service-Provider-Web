@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 
-function Message() {
+function AssignTechnician() {
 
   const s1 = window.location.href;
   var s2 = s1.substr(s1.length - 5);
@@ -13,7 +13,7 @@ function Message() {
   const history = useHistory();
   const [input, setInput] = useState({
     serviceID:'',
-    message: ''
+    technicianID: ''
   })
 
   function handleChange(event){
@@ -30,19 +30,19 @@ function Message() {
    function handleClick(event){
      event.preventDefault();
      console.log(input);
-     const newMessage = {
+     const newAssign = {
        serviceID:input.serviceID,
-       message: input.message
+       technicianID: input.technicianID
      }
 
-      axios.post('http://localhost:3001/message', newMessage)
+     axios.post('http://localhost:3001/assigntechnician', newAssign)
     } 
 
   return (
     
         <div className="wrapper-shopkeeperdetails">
             <div class="title">
-        Enter message</div>
+        Assign Technician</div>
         <form method="POST">
 
               <div class="field">
@@ -51,8 +51,8 @@ function Message() {
                </div>
                 
                 <div class="field">
-                <input onChange={handleChange} type="text" required name="message" value={input.message}/>
-                <label>Type message...</label>
+                <input onChange={handleChange} type="text" required name="technicianID" value={input.technicianID}/>
+                <label>Technician ID</label>
                 </div>
                 <div class="content">
                 
@@ -68,4 +68,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default AssignTechnician;

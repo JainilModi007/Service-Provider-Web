@@ -8,11 +8,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import HeaderCustomer from "../Header/HeaderCustomer";
 
 
 function FeedbackForm() {
     const [input, setInput] = useState({
         serviceID: '',
+        shopkeeperID : '',
         exp: '',
         comment: ''
       })
@@ -33,7 +35,9 @@ function FeedbackForm() {
         event.preventDefault();
         console.log(input);
          const newFeedback = {
+           
            serviceID: input.serviceID,
+           shopkeeperID: input.shopkeeperID,
            exp: input.exp,
            comment: input.comment
          }
@@ -43,6 +47,7 @@ function FeedbackForm() {
   
   return (
     <div>
+      <HeaderCustomer/>
         <div class="wrapper-feedbackform">
           
         <div class="title">
@@ -54,6 +59,11 @@ function FeedbackForm() {
             <div class="field2">
                 <input onChange={handleChange} type="text" required name="serviceID" value={input.serviceID}/>
                 <label>Service ID</label>
+            </div>
+
+            <div class="field2">
+                <input onChange={handleChange} type="text" required name="shopkeeperID" value={input.shopkeeperID}/>
+                <label>Shopkeeper ID</label>
             </div>
 
             <div class="experience">
@@ -74,7 +84,7 @@ function FeedbackForm() {
             </div>
 
             <div class="field3">
-               <Link to = "/customerhome"> <input  type="submit" value="Submit"/></Link>
+               <Link to = "/customerhome"> <input onClick={handleClick} type="submit" value="Submit"/></Link>
             </div>
    
          </form>

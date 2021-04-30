@@ -13,11 +13,16 @@ import ServiceCategory from "./Customer/ServiceCategory";
 import ShopkeeperHome from "./Shopkeeper/ShopkeeperHome";
 import CustomerHome from "./Customer/CustomerHome";
 import TechnicianHome from "./Technician/TechnicianHome";
+import ViewRequest from "./Technician/ViewRequest";
+import Otp from "./Technician/Otp";
+import CustomerOTP from "./Customer/CustomerOTP";
+import ViewService from "./Technician/ViewService";
 import HeaderHome from "./Header/HeaderHome";
 import HeaderCustomer from "./Header/HeaderCustomer";
 import HeaderShopkeeper from "./Header/HeaderShopkeeper";
 import HeaderTechnician from "./Header/HeaderTechnician";
-import CustomerDetails from "./Customer/CustomerDetails"
+import CustomerDetails from "./Customer/CustomerDetails";
+import RegisteredTechnician from "./Shopkeeper/RegisteredTechnician";
 import ShopkeeperDetails from "./Shopkeeper/ShopkeeperDetails"
 import FeedbackForm from "./Customer/FeedbackForm";
 import ComplaintForm from "./Customer/ComplaintForm";
@@ -27,7 +32,12 @@ import ProductDetails from "./Shopkeeper/ProductDetails"
 import ViewShopkeeperDetails from "./Customer/ViewShopkeeperDetails"
 import Message from "./Shopkeeper/Message"
 import Status from "./Customer/Status"
+import AssignTechnician from "./Shopkeeper/AssignTechnician"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Technicianinfo from "./Technician/TechnicianInfo" ;
+import CustomerID from "./Customer/CustomerID";
+import ShopkeeperID from "./Shopkeeper/ShopkeeperID";
+import TechnicianID from "./Technician/TechnicianID";
 
 function App() {
   return (
@@ -41,8 +51,54 @@ function App() {
           <Route path="/headershopkeeper">
             <HeaderShopkeeper/>
           </Route>
+          <Route path="/headercustomer">
+            <HeaderCustomer/>
+          </Route>
+          <Route path="/headertechnician">
+            <HeaderTechnician/>
+          </Route>
+
+          <Route path="/customerid">
+            <CustomerID/>
+          </Route>
+
+          <Route path="/shopkeeperid">
+            <ShopkeeperID/>
+          </Route>
+
+          <Route path="/technicianid">
+            <TechnicianID/>
+          </Route>
+
+          <Route path="/otp">
+            <Otp/>
+          </Route>
+
+          <Route path="/customerotp">
+            <CustomerOTP/>
+          </Route>
+
+          <Route path="/registeredtechnician">
+            <RegisteredTechnician/>
+          </Route>
+         
+          <Route path="/technicianinfo">
+            <Technicianinfo/>
+          </Route>
+
+          <Route path="/viewrequest">
+            <ViewRequest/>
+          </Route>
+
+          <Route path="/viewservice">
+            <ViewService/>
+          </Route>
+
           <Route path="/shopkeeperhome">
             <ShopkeeperHome/>
+          </Route>
+          <Route path="/assigntechnician">
+            <AssignTechnician/>
           </Route>
           <Route path="/customerhome">
             <CustomerHome/>

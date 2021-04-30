@@ -3,8 +3,14 @@ import React, { useEffect, useState } from "react";
 import HeaderShopkeeper from "../Header/HeaderShopkeeper"
 
 function TechnicianDetails() {
+
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  console.log(s2);
+
   const [technicians, setTechnicians] = useState([
     {
+      shopkeeperID:"",
       technicianID: "",
       technicianName: "",
       contactNo: "",
@@ -27,7 +33,11 @@ function TechnicianDetails() {
   return (
     <div className="request">
       <HeaderShopkeeper/>
-      {technicians.map((technician) => (
+      {technicians.filter((technician) => {
+        if(technician.shopkeeperID.includes(s2)){
+          return technician
+        }
+      }).map((technician) => (
         <div className="request-card">
           <div style={{ display: "flex", justifyContent: "left" }}>
             <div>

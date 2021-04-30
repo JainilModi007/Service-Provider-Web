@@ -1,9 +1,10 @@
 const express = require("express")
 const Request = require("../models/dbrequest")
+const ShopkeeperDetails = require("../models/dbshopkeeperdetails")
 
 const router = express.Router();
 
-router.route("/customerform").post((req, res) => {
+router.post("/customerform", async (req, res) => {
     const customerID =  req.body.customerID;
     const customerName = req.body.customerName;
     const contactNo = req.body.contactNo;
@@ -17,6 +18,23 @@ router.route("/customerform").post((req, res) => {
     const description = req.body.description;
     const shopkeeperName = req.body.shopkeeperName;
     const shopkeeperID = req.body.shopkeeperID;
+    const serviceID = req.body.serviceID;
+
+    try{
+
+    const userExist = await ShopkeeperDetails.findOne({shopkeeperID:shopkeeperID});
+    const serviceExist = await Request.findOne({serviceID:serviceID});
+
+    if(!userExist ){
+        return res.status(411).json({error : "enter valid shopkeeperid"})
+    }
+
+    if(serviceExist){
+        return res.status(412).json({error : "enter valid serviceid"})
+    }
+
+   
+
     const newRequest = new Request({
         customerID,
         customerName,
@@ -30,10 +48,19 @@ router.route("/customerform").post((req, res) => {
         date,
         description,
         shopkeeperName,
-        shopkeeperID
+        shopkeeperID,
+        serviceID
     });
-
     newRequest.save();
+
+    if(userExist && !serviceExist){
+        return res.status(212).json({message : "successfully"})
+    }
+    }catch(err){
+        console.log(err);
+    }
+    
+    
 })
 
 
@@ -48,5 +75,13 @@ router.route("/requesthistory").get((req, res) => {
         .then(foundRequestHistory => res.json(foundRequestHistory))
         
 })
+
+router.route("/viewrequest").get((req, res) => {
+    Request.find()
+        .then(foundviewRequest => res.json(foundviewRequest))
+        
+})
+
+
 
 module.exports = router;

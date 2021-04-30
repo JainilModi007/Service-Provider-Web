@@ -52,15 +52,15 @@ function Login(){
            else if(res.status === 200){
              window.alert("Logged in successfully");
              console.log(data);
-             history.push("/customerhome")
+             history.push("/customerid")
            }
            else if(res.status === 201){
              window.alert("Logged in successfully");
-             history.push("/shopkeeperhome")
+             history.push("/shopkeeperid")
            }
           else{
             window.alert("Logged in successfully");
-            history.push("/technicianhome")
+            history.push("/technicianid")
           }
           
         }

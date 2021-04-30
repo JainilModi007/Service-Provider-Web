@@ -7,6 +7,11 @@ import {
   } from "react-router-dom";
 
 function ServiceCategory() {
+
+    const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
+  var s3 =  `/customerform/${s2}`;
+
     return (
       <div className="service-category">
           <h2 style={{textAlign:"center"}}>Select Service Category</h2>
@@ -16,7 +21,7 @@ function ServiceCategory() {
         
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <Link to="/viewshopkeeperdetails"><img src="/images/ac-services.png" style={{marginTop:"6px", height:"70%",width:"100%"}}/></Link>
+                        <Link to={s3}><img src="/images/ac-services.png" style={{marginTop:"6px", height:"70%",width:"100%"}}/></Link>
 
                         <div class="tileComponent2">
                             <div class="componentHeading" style={{marginTop: "8px",
@@ -33,7 +38,7 @@ function ServiceCategory() {
             
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <Link to="/customerform"><img src="/images/Carpenter.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
+                        <Link to={s3}><img src="/images/Carpenter.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -47,7 +52,7 @@ function ServiceCategory() {
           
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/cleaning.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}><img src="/images/cleaning.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -61,7 +66,7 @@ function ServiceCategory() {
            
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/computer-repair.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}><img src="/images/computer-repair.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -75,7 +80,7 @@ function ServiceCategory() {
            
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/electrician.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}><img src="/images/electrician.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -89,7 +94,7 @@ function ServiceCategory() {
            
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/geyser.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}> <img src="/images/geyser.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -103,7 +108,7 @@ function ServiceCategory() {
 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/microwave-oven.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}> <img src="/images/microwave-oven.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -117,7 +122,7 @@ function ServiceCategory() {
 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/painting.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}>  <img src="/images/painting.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -131,7 +136,7 @@ function ServiceCategory() {
 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/Plumber.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}> <img src="/images/Plumber.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -145,7 +150,7 @@ function ServiceCategory() {
 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/refrigerator.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}> <img src="/images/refrigerator.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -159,7 +164,7 @@ function ServiceCategory() {
 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/tv.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}><img src="/images/tv.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">
@@ -173,7 +178,7 @@ function ServiceCategory() {
                 
                 <div class="tileContainer">
                     <div class="tileComponent1">
-                        <img src="/images/water-purifier.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/>
+                    <Link to={s3}> <img src="/images/water-purifier.png" style={{marginTop:"6px", height:"70%", width:"100%"}}/></Link>
 
 
                         <div class="tileComponent2">

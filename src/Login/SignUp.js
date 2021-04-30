@@ -77,7 +77,7 @@ function SignUp() {
           }
           else {
             window.alert("Registered successfully");
-            history.push("/techniciandetails");
+            history.push("/technicianinfo");
           }
 
     

@@ -5,10 +5,12 @@ const router = express.Router();
 
 router.route("/feedbackform").post((req, res) => {
     const serviceID =  req.body.serviceID;
+    const shopkeeperID =  req.body.shopkeeperID;
     const exp = req.body.exp;
     const comment = req.body.comment;
     const newFeedback = new Feedback({
         serviceID,
+        shopkeeperID,
         exp,
         comment
     });

@@ -1,6 +1,7 @@
 import "../Shopkeeper/Request.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import HeaderCustomer from "../Header/HeaderCustomer";
 
 function ViewShopkeeperDetails() {
   const [shopkeeperdetails, setShopkeeperDetails] = useState([
@@ -24,7 +25,11 @@ function ViewShopkeeperDetails() {
   const [searchTerm, setSearchTerm] = useState("")
 
   return (
+
+    
+
     <div className="product">
+      <HeaderCustomer/>
       <input class="search" type="text" placeholder="Search from Shop Name" onChange={event => {setSearchTerm(event.target.value)}}/>
       {shopkeeperdetails.filter((val) => {
         if(searchTerm == ""){
@@ -41,7 +46,7 @@ function ViewShopkeeperDetails() {
               <span>Shopkeeper ID : {val.shopkeeperID}</span>
             
           </div>
-          <Link to="customerform"><button type="button" class="btn btn-warning" style={{ borderRadius: "10px", fontWeight: "600" }}>Next </button></Link>
+         
               
         </div>
 
