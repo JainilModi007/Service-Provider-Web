@@ -93,6 +93,7 @@ function CustomerOTP() {
   return (
     
         <div className="wrapper-customerdetails">
+          <HeaderCustomer/>
             <div class="title">
         Enter OTP</div>
         <form method="POST">

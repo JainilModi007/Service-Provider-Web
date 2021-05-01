@@ -5,6 +5,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import HeaderCustomer from "../Header/HeaderCustomer";
 
 function ServiceCategory() {
 
@@ -14,6 +15,7 @@ function ServiceCategory() {
 
     return (
       <div className="service-category">
+          <HeaderCustomer/>
           <h2 style={{textAlign:"center"}}>Select Service Category</h2>
     <div class="wrapper-servicecategory">
        

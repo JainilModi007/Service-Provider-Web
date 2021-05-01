@@ -1,11 +1,11 @@
-import "./ShopkeeperDetails.css";
+import "../Shopkeeper/ShopkeeperDetails.css";
 import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
-import HeaderShopkeeper from "../Header/HeaderShopkeeper";
+import HeaderTechnician from "../Header/HeaderTechnician";
 
-function AssignTechnician() {
+function Message() {
 
   const s1 = window.location.href;
   var s2 = s1.substr(s1.length - 5);
@@ -14,7 +14,7 @@ function AssignTechnician() {
   const history = useHistory();
   const [input, setInput] = useState({
     serviceID:'',
-    technicianID: ''
+    message: ''
   })
 
   function handleChange(event){
@@ -31,20 +31,20 @@ function AssignTechnician() {
    function handleClick(event){
      event.preventDefault();
      console.log(input);
-     const newAssign = {
+     const newConfirm = {
        serviceID:input.serviceID,
-       technicianID: input.technicianID
+       message: input.message
      }
 
-     axios.post('http://localhost:3001/assigntechnician', newAssign)
+      axios.post('http://localhost:3001/confirmpage', newConfirm)
     } 
 
   return (
     
         <div className="wrapper-shopkeeperdetails">
-          <HeaderShopkeeper/>
+            
             <div class="title">
-        Assign Technician</div>
+        Send Confirmation</div>
         <form method="POST">
 
               <div class="field">
@@ -53,8 +53,8 @@ function AssignTechnician() {
                </div>
                 
                 <div class="field">
-                <input onChange={handleChange} type="text" required name="technicianID" value={input.technicianID}/>
-                <label>Technician ID</label>
+                <input onChange={handleChange} type="text" required name="message" value={input.message}/>
+                <label>Type message...</label>
                 </div>
                 <div class="content">
                 
@@ -70,4 +70,4 @@ function AssignTechnician() {
   );
 }
 
-export default AssignTechnician;
+export default Message;

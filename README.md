@@ -3,7 +3,7 @@ step 2 : create account on mongodb atlas and replace URL in mongodb.connect (in 
 step 3 : install node-modules in root directory
          Command : node install node-modules
 
-         install node-modules in service-backend folde
+         install node-modules in service-backend folder
          Command : node install node-modules
 
 step 4 : run server.js file in command promt (/src/service-backend/server.js) (keep open mongodb atlas in  background)

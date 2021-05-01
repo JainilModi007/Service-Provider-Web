@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
+import HeaderShopkeeper from "../Header/HeaderShopkeeper";
 
 function Message() {
 
@@ -41,6 +42,7 @@ function Message() {
   return (
     
         <div className="wrapper-shopkeeperdetails">
+          <HeaderShopkeeper/>
             <div class="title">
         Enter message</div>
         <form method="POST">

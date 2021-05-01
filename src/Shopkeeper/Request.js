@@ -133,6 +133,17 @@ function Request() {
               </button>
               </Link>
             </p>
+
+            <p style={{ display: "flex" }}>
+              <Link to= {`/techstatus/`+ `${request.serviceID}`}><button
+                type="button"
+                class="btn btn-warning"
+                style={{ borderRadius: "10px", fontWeight: "600" }}
+              >
+                View technician Status
+              </button>
+              </Link>
+            </p>
            
 
             

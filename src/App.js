@@ -38,6 +38,8 @@ import Technicianinfo from "./Technician/TechnicianInfo" ;
 import CustomerID from "./Customer/CustomerID";
 import ShopkeeperID from "./Shopkeeper/ShopkeeperID";
 import TechnicianID from "./Technician/TechnicianID";
+import ConfirmPage from "./Technician/ConfirmPage";
+import TechStatus from "./Shopkeeper/TechStatus";
 
 function App() {
   return (
@@ -69,6 +71,16 @@ function App() {
           <Route path="/technicianid">
             <TechnicianID/>
           </Route>
+
+          <Route path="/confirmpage">
+            <ConfirmPage/>
+          </Route>
+
+          <Route path="/techstatus">
+            <TechStatus/>
+          </Route>
+
+
 
           <Route path="/otp">
             <Otp/>

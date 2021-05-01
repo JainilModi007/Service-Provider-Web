@@ -49,7 +49,7 @@ app.use("/", require("./routes/assign"));
 app.use("/", require("./routes/techniciandetailsRoute"));
 app.use("/", require("./routes/otpRoute"));
 app.use("/", require("./routes/idRoute"));
-
+app.use("/", require("./routes/confirmRoute"));
 
 // Listener 
 app.listen(3001,() =>{

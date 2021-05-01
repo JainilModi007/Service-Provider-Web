@@ -8,6 +8,8 @@ import HeaderTechnician from "../Header/HeaderTechnician"
 function Otp() {
 
   
+  const s1 = window.location.href;
+  var s2 = s1.substr(s1.length - 5);
        // window.alert("Please note down your Shopkeeper ID : " + randomNum);
         //window.onload = function () {
           //  document.getElementById("shopkeeperID").value = randomNum.substr(0,5); 
@@ -61,7 +63,7 @@ function Otp() {
           }
           else if(res.status === 200 ){
             window.alert("OTP Verified Successfully")
-            //history.push("/customerhome");
+            history.push("/confirmpage/" + `${s2}`);
           }
      
 
@@ -75,7 +77,7 @@ function Otp() {
   return (
     
         <div className="wrapper-shopkeeperdetails">
-          
+         
             <div class="title">
         Enter OTP</div>
         <form method="POST">
